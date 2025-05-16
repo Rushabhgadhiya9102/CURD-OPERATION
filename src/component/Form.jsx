@@ -46,6 +46,8 @@ const Form = () => {
     if (editId === null) {
       let newData = [...empData, { ...employee, id: Date.now() }];
       setEmpData(newData);
+      localStorage.setItem("empData", JSON.stringify(newData));
+
     } else {
       let data = empData.map((val) => {
         if (val.id === editId) {
@@ -263,7 +265,7 @@ const Form = () => {
       </section>
 
       <section className="container py-5">
-        
+
         {/* ---------- T A B L E - S E C T I O N ----------- */}
 
         <table className="table  table-striped">
